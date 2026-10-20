@@ -1,0 +1,52 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\Booking;
+use App\Models\Room;
+use App\Models\RoomType;
+use App\Models\User;
+use Illuminate\Database\Seeder;
+
+class BookingSeeder extends Seeder
+{
+    public function run(): void
+    {
+        $user = User::firstOrCreate(
+            ['email' => 'test@example.com'],
+            ['name' => 'Test User', 'password' => 'password']
+        );
+
+        $roomType = RoomType::firstOrCreate(
+            ['name' => 'Test room type'],
+            [
+                'description' => 'Для проверки формы',
+                'capacity' => 2,
+                'price_per_night' => 100,
+            ]
+        );
+
+        $room = Room::firstOrCreate(
+            ['number' => 'TEST-101'],
+            [
+                'room_type_id' => $roomType->id,
+                'floor' => 1,
+            ]
+        );
+
+        Booking::firstOrCreate(
+            [
+                'user_id' => $user->id,
+                'room_id' => $room->id,
+                'check_in' => '2030-01-10',
+            ],
+            [
+                'check_out' => '2030-01-12',
+                'guests_count' => 2,
+                'total_price' => 200,
+                'status' => 'confirmed',
+                'comment' => 'Тестовое бронирование',
+            ]
+        );
+    }
+}
