@@ -1,10 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\RoomTypeController;
 use App\Models\RoomType;
+use App\Http\Controllers\UserController;
+use App\Models\User;
 
 Route::get('/', function () {
     return view('welcome');
@@ -16,6 +19,14 @@ Route::get('/payments/{id}/edit', [PaymentController::class, 'edit'])->name('pay
 Route::get('/payments/{id}', [PaymentController::class, 'show'])->name('payments.show');
 Route::put('/payments/{id}', [PaymentController::class, 'update'])->name('payments.update');
 Route::delete('/payments/{id}', [PaymentController::class, 'destroy'])->name('payments.destroy');
+
+Route::get('/bookings', [BookingController::class, 'index'])->name('bookings.index');
+Route::get('/bookings/create', [BookingController::class, 'create'])->name('bookings.create');
+Route::post('/bookings', [BookingController::class, 'store'])->name('bookings.store');
+Route::get('/bookings/{id}/edit', [BookingController::class, 'edit'])->name('bookings.edit');
+Route::get('/bookings/{id}', [BookingController::class, 'show'])->name('bookings.show');
+Route::put('/bookings/{id}', [BookingController::class, 'update'])->name('bookings.update');
+Route::delete('/bookings/{id}', [BookingController::class, 'destroy'])->name('bookings.destroy');
 
 Route::get('/rooms', [RoomController::class, 'index'])->name('rooms.index');
 Route::get('/rooms/create',[RoomController::class, 'create'])->name('rooms.create');

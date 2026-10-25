@@ -34,19 +34,54 @@ class BookingSeeder extends Seeder
             ]
         );
 
-        Booking::firstOrCreate(
+        $bookings = [
             [
-                'user_id' => $user->id,
-                'room_id' => $room->id,
                 'check_in' => '2030-01-10',
-            ],
-            [
                 'check_out' => '2030-01-12',
                 'guests_count' => 2,
-                'total_price' => 200,
-                'status' => 'confirmed',
-                'comment' => 'Тестовое бронирование',
-            ]
-        );
+                'comment' => 'Тестовое бронирование 1',
+            ],
+            [
+                'check_in' => '2030-01-15',
+                'check_out' => '2030-01-17',
+                'guests_count' => 1,
+                'comment' => 'Тестовое бронирование 2',
+            ],
+            [
+                'check_in' => '2030-01-20',
+                'check_out' => '2030-01-22',
+                'guests_count' => 2,
+                'comment' => 'Тестовое бронирование 3',
+            ],
+            [
+                'check_in' => '2030-01-25',
+                'check_out' => '2030-01-27',
+                'guests_count' => 1,
+                'comment' => 'Тестовое бронирование 4',
+            ],
+            [
+                'check_in' => '2030-01-30',
+                'check_out' => '2030-02-01',
+                'guests_count' => 2,
+                'comment' => 'Тестовое бронирование 5',
+            ],
+        ];
+
+        foreach ($bookings as $bookingData) {
+            Booking::firstOrCreate(
+                [
+                    'user_id' => $user->id,
+                    'room_id' => $room->id,
+                    'check_in' => $bookingData['check_in'],
+                ],
+                [
+                    'check_out' => $bookingData['check_out'],
+                    'guests_count' => $bookingData['guests_count'],
+                    'total_price' => 200,
+                    'status' => 'confirmed',
+                    'comment' => $bookingData['comment'],
+                ]
+            );
+        }
     }
 }
