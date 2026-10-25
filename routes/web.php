@@ -43,3 +43,11 @@ Route::get('/roomTypes/{id}', [RoomTypeController::class, 'show'])->name('roomTy
 Route::get('roomTypes/{id}/edit', [RoomTypeController::class, 'edit'])->name('roomTypes.edit');
 Route::put('roomTypes/{id}', [RoomTypeController::class, 'update'])->name('roomTypes.update');
 Route::delete('roomTypes/{id}', [RoomTypeController::class, 'destroy'])->name('roomTypes.destroy');
+
+Route::post('/users', [UserController::class, 'store'])->name('users.store');
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
+Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
+Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
