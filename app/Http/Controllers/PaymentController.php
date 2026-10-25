@@ -25,7 +25,7 @@ class PaymentController extends Controller
 
         $payment->update($request->only('booking_id', 'amount', 'method'));
 
-        return $payment;
+        return response()->json($payment, 200);
     }
 
     public function destroy(string $id) {
