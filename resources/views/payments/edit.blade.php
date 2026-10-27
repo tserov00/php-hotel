@@ -1,6 +1,7 @@
 <h1>Редактировать платёж</h1>
 
 <form method="POST" action="{{ route('payments.update', $payment->id) }}">
+    @csrf
     @method('PUT')
 
     <label>
@@ -38,3 +39,5 @@
 
     <button type="submit">Сохранить изменения</button>
 </form>
+
+<p><a href="{{ route('payments.show', $payment->id) }}">К платежу</a></p>

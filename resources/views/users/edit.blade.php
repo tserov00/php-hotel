@@ -35,3 +35,5 @@
 
     <button type="submit">Сохранить изменения</button>
 </form>
+
+<p><a href="{{ route('users.show', $user->id) }}">К пользователю</a></p>

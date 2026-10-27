@@ -37,6 +37,9 @@
                     <td>{{ $booking->total_price }}</td>
                     <td>{{ $booking->status instanceof \App\Enums\BookingStatus ? $booking->status->value : $booking->status }}</td>
                     <td>
+                        <form method="GET" action="{{ route('bookings.edit', $booking->id) }}">
+                            <button type="submit">Редактировать</button>
+                        </form>
                         <form method="POST" action="{{ route('bookings.destroy', $booking->id) }}">
                             @csrf
                             @method('DELETE')

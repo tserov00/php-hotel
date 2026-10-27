@@ -30,6 +30,10 @@
     <a href="{{ route('bookings.index') }}">К списку бронирований</a>
 </p>
 
+<form method="GET" action="{{ route('bookings.edit', $booking->id) }}">
+    <button type="submit">Редактировать бронирование</button>
+</form>
+
 <form method="POST" action="{{ route('bookings.destroy', $booking->id) }}">
     @csrf
     @method('DELETE')

@@ -18,9 +18,11 @@
     <label>
         Номер комнаты
         <input
-            type="text"
+            type="number"
             name="number"
             value="{{ old('number', $room->number) }}"
+            min="1"
+            step="1"
             required
         >
     </label>
@@ -37,3 +39,5 @@
 
     <button type="submit">Сохранить изменения</button>
 </form>
+
+<p><a href="{{ route('rooms.show', $room->id) }}">К комнате</a></p>

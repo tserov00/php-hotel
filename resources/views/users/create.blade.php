@@ -43,3 +43,5 @@
 
     <button type="submit">Сохранить</button>
 </form>
+
+<p><a href="{{ route('users.index') }}">К списку пользователей</a></p>

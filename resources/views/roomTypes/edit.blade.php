@@ -44,3 +44,5 @@
 
     <button type="submit">Сохранить изменения</button>
 </form>
+
+<p><a href="{{ route('roomTypes.show', $roomType->id) }}">К типу комнаты</a></p>

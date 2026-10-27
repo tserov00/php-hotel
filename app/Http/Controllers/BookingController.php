@@ -13,9 +13,7 @@ class BookingController extends Controller
 {
     public function index()
     {
-        return view('bookings.index', [
-            'bookings' => Booking::all(),
-        ]);
+        return view('bookings.index', ['bookings' => Booking::all(), ]);
     }
 
     public function create()
@@ -47,9 +45,7 @@ class BookingController extends Controller
     {
         $booking = Booking::findOrFail($id);
 
-        return view('bookings.show', [
-            'booking' => $booking,
-        ]);
+        return view('bookings.show', ['booking' => $booking, ]);
     }
 
     public function edit(string $id)
@@ -73,6 +69,6 @@ class BookingController extends Controller
         $booking = Booking::findOrFail($id);
         $booking->delete();
 
-        return redirect()->route('bookings.index');
+        return response()->json($booking, 200);
     }
 }

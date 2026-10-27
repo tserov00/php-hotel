@@ -1,6 +1,7 @@
 <h1>Новый платёж</h1>
 
 <form method="POST" action="{{ route('payments.store') }}">
+    @csrf
 
     <label>
         ID бронирования
@@ -26,10 +27,12 @@
     <label>
         Способ оплаты
         <select name="method" required>
-            <option value="card">Карта</option>
-            <option value="cash">Наличные</option>
+            <option value="card" @selected(old('method') === 'card')>Карта</option>
+            <option value="cash" @selected(old('method') === 'cash')>Наличные</option>
         </select>
     </label>
 
     <button type="submit">Сохранить</button>
 </form>
+
+<p><a href="{{ route('payments.index') }}">К списку платежей</a></p>

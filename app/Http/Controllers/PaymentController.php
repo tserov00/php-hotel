@@ -13,11 +13,11 @@ class PaymentController extends Controller
     }
 
     public function index() {
-        return Payment::all();
+        return view('payments.index', ['payments' => Payment::all()]);
     }
 
     public function show(string $id) {
-        return Payment::findOrFail($id);
+        return view('payments.show', ['payment' => Payment::FindOrFail($id)]);
     }
 
     public function update(Request $request, string $id) {

@@ -43,3 +43,5 @@
 
     <button type="submit">Сохранить</button>
 </form>
+
+<p><a href="{{ route('roomTypes.index') }}">К списку типов комнат</a></p>

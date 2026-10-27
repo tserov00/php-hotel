@@ -17,9 +17,11 @@
     <label>
         Номер комнаты
         <input
-            type="text"
+            type="number"
             name="number"
             value="{{ old('number') }}"
+            min="1"
+            step="1"
             required
         >
     </label>
@@ -36,3 +38,5 @@
 
     <button type="submit">Сохранить</button>
 </form>
+
+<p><a href="{{ route('rooms.index') }}">К списку комнат</a></p>

@@ -9,9 +9,9 @@ class UserController extends Controller
 {
     public function index()
     {
-        return User::all();
+        return view('users.index', ['users' => User::all()]);
     }
-    
+
     public function create()
     {
         return view('users.create');
@@ -25,12 +25,12 @@ class UserController extends Controller
 
     public function show(string $id)
     {
-        return User::findOrFail($id);
+        return view('users.show', ['user' => User::findOrFail($id)]);
     }
 
-    public function edit(User $user)
+    public function edit(string $id)
     {
-        return view('users.edit');
+        return view('users.edit', ['user' => User::findOrFail($id)]);
     }
 
     public function update(Request $request, string $id)
