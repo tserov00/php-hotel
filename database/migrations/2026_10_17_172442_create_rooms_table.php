@@ -16,7 +16,6 @@ return new class extends Migration
             $table->foreignId('room_type_id')->constrained()->restrictOnDelete();
             $table->string('number')->unique();
             $table->integer('floor');
-            $table->enum('status', ['available', 'maintenance'])->default('available');
             $table->timestamps();
         });
     }

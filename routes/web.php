@@ -5,9 +5,11 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\RoomTypeController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
 
-Route::view('/', 'welcome');
+Route::get('/', [SearchController::class, 'index'])->name('search.index');
+Route::get('/search/results', [SearchController::class, 'results'])->name('search.results');
 
 Route::view('dashboard', 'dashboard')
 ->middleware(['auth', 'verified'])

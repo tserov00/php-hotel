@@ -17,6 +17,8 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->integer('capacity');
             $table->decimal('price_per_night', 10, 2);
+            $table->integer('area');
+            $table->string('photo_path')->nullable();
             $table->timestamps();
         });
     }
