@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use App\Enums\PaymentMethod;
 
-#[Fillable(['booking_id', 'amount', 'method'])]
+#[Fillable(['amount', 'method'])]
 class Payment extends Model
 {
     protected function casts(): array{
